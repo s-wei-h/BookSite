@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Professor Hilton Book Reccomendations";
+}
+
+@model IQueryable<Book>
+
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.Title</h1>
+
+    @foreach (var book in Model)
+    {
+        //p-3 -> padding, m-lg-4 -> margin, border-info -> blue border
+        <div class="container-sm p-3 m-lg-4 border border-info rounded-lg">
+            <h3>@book.Title</h3>
+            <div>
+                <p class="font-weight-bold">Written by: @book.AuthorLast, @book.AuthorFirst</p>
+                <p>Published by: @book.Publisher</p>
+                <p>IBSN: @book.ISBN</p>
+                <p>Can be purchased for $@book.Price</p>
+            </div>
+        </div>
+        <br />
+    }
+</div>
